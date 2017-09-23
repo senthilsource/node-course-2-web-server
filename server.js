@@ -32,21 +32,21 @@ app.use((req, res, next)=>{
 
 app.use(express.static(__dirname+"/public"));
 
-//Server request API handlers
-app.get('/*', (req, res)=>{
-        res.render('main', 
+app.get('/about', (req, res)=>{
+        res.render('about', 
                   {
-                    body: 'This is rendered main page',
-                    title : 'Main'
+                    body: 'This is rendered about page',
+                    title : 'About'
                 });
         }
 );
 
-app.get('/about', (req, res)=>{
-        res.render('main', 
+
+app.get('/project', (req, res)=>{
+        res.render('projects', 
                   {
-                    body: 'This is rendered about page',
-                    title : 'About'
+                    body: 'This is rendered project page',
+                    title : 'Projects'
                 });
         }
 );
@@ -61,6 +61,16 @@ app.get('/jsonView', (req, res)=>{
                         }
                 });
 });
+
+//Server request API handlers
+app.get('/*', (req, res)=>{
+        res.render('home', 
+                  {
+                    body: 'This is rendered main page. To be continued',
+                    title : 'Main'
+                });
+        }
+);
 
 // Server listener
 app.listen(port, ()=>{
