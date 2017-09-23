@@ -33,7 +33,7 @@ app.use((req, res, next)=>{
 app.use(express.static(__dirname+"/public"));
 
 //Server request API handlers
-app.get('/', (req, res)=>{
+app.get('/*', (req, res)=>{
         res.render('main', 
                   {
                     body: 'This is rendered main page',
