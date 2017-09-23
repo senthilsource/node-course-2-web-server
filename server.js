@@ -1,6 +1,7 @@
 const express=require("express");
 const hbs = require("hbs");
 const fs = require("fs");
+const port = process.env.PORT || 3000;
 
 var app = express();
 var infoLog = console.info;
@@ -24,9 +25,9 @@ app.use((req, res, next)=>{
     next();
 })
 
-app.use((req, res, next)=>{
+/*app.use((req, res, next)=>{
     res.render("maintenance.hbs");
-});
+});*/
 // Middleware End
 
 app.use(express.static(__dirname+"/public"));
@@ -62,4 +63,6 @@ app.get('/jsonView', (req, res)=>{
 });
 
 // Server listener
-app.listen(3000);
+app.listen(port, ()=>{
+    infoLog(`Server is running in ${port}`);
+});
